@@ -11,6 +11,6 @@ kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/relea
 #
 
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-helm upgrade --install guestbook-nginx ingress-nginx/ingress-nginx --version v4.12.1 --set controller.ingressClass=nginx --namespace=sample-guestbook --set controller.watchNamespace=sample-guestbook --set controller.replicaCount=2 --set controller.metrics.enabled=true --set controller.service.externalTrafficPolicy=Local --set-string controller.podAnnotations."prometheus\.io/scrape"="true" --set-string controller.podAnnotations."prometheus\.io/port"="10254" --set controller.service.type=ClusterIP
+helm upgrade --install guestbook-nginx ingress-nginx/ingress-nginx --version v4.12.1 --set controller.ingressClass=nginx --namespace=sample-guestbook --set controller.watchNamespace=sample-guestbook --set controller.replicaCount=2 --set controller.metrics.enabled=true --set-string controller.podAnnotations."prometheus\.io/scrape"="true" --set-string controller.podAnnotations."prometheus\.io/port"="10254"
 
 ####

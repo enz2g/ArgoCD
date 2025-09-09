@@ -4,11 +4,10 @@ metadata:
   name: guestbook-backend
   namespace: sample-guestbook
 spec:
-  externalTrafficPolicy: Local
   selector:
     app: guestbook
   ports:
     - port: 80         
       targetPort: 3000 
       protocol: TCP
-  type: LoadBalancer
+  type: ClusterIP   
