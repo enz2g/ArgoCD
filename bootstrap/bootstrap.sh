@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
-
+#########################################################################
+# This script is for Mac/Linux systems with kubectl and argocd CLI installed
+# It checks for the correct kubectl context, installs ArgoCD if not present,
+# NEED TO CREATE A POWERSHELL VERSION FOR WINDOWS
+#########################################################################
 EXPECTED_CONTEXT="rancher-desktop"
 argocdServerURL="argocd.local" #update to the correct URL for the cluster
 

@@ -22,3 +22,6 @@ spec:
         - name: BG_COLOR
           # value: "#f0f8ff"  # Light blue
           value: "#ff0000"  # Red
+
+
+          
