@@ -17,7 +17,7 @@ spec:
       name: '{{.clusterName}}-cert-manager'
     spec:
       destination:
-        server: '{{.url}}'
+        server: '{{.clusterURL}}'
         namespace: certmanager
       project: default
       sources:

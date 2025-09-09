@@ -33,7 +33,7 @@ spec:
         targetRevision: HEAD
         path: apps-config/environment/{{.clusterName}}/manifests/grafana
       destination:
-        server: '{{.url}}'
+        server: '{{.clusterURL}}'
         namespace: grafana
       syncPolicy:
         # automated:
