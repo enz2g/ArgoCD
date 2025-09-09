@@ -19,7 +19,7 @@ spec:
       destination:
         server: '{{.clusterURL}}'
         namespace: sample-guestbook
-      project: sample-guestbook
+      project: platform
       sources:
       - repoURL: https://github.com/BlackOpsSolutions/Training-ArgoCD.git
         targetRevision: HEAD
