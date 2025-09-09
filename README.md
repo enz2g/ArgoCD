@@ -51,8 +51,7 @@ bootstrap/
    git clone https://github.com/BlackOpsSolutions/Training-ArgoCD.git
    cd Training-ArgoCD/bootstrap
    ```
- <span style="color: red;">**📛 BOOTSTRAP Script is for Mac/Linux Machines to run shell. <br>
- A Powershell script will be available to do Windows**</span>
+#### <span style="color: red;"> 📛 BOOTSTRAP Script is for Mac/Linux Machines to run shell. A Powershell script will be available to do Windows</span>
 
 2. **Run the bootstrap script**
    ```bash
