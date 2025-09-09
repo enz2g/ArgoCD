@@ -14,7 +14,7 @@ spec:
         chartVersion: 1.16.1
   template:
     metadata:
-      name: '{{.cluster}}-cert-manager'
+      name: '{{.clusterName}}-cert-manager'
     spec:
       destination:
         server: '{{.url}}'
@@ -28,7 +28,7 @@ spec:
           valueFiles:
             - $values/apps-config/base/cert-manager.yaml
             - $values/apps-config/variant/{{.variant}}/cert-manager.yaml
-            - $values/apps-config/environment/{{.cluster}}/cert-manager.yaml
+            - $values/apps-config/environment/{{.clusterName}}/cert-manager.yaml
       - repoURL: https://github.com/BlackOpsSolutions/Training-ArgoCD.git
         targetRevision: HEAD
         ref: values

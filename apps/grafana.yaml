@@ -14,7 +14,7 @@ spec:
         chartVersion: 1.16.1
   template:
     metadata:
-      name: '{{.cluster}}-grafana'
+      name: '{{.clusterName}}-grafana'
     spec:
       project: default
       sources:
@@ -25,7 +25,7 @@ spec:
           valueFiles:
             - $values/apps-config/base/grafana.yaml
             - $values/apps-config/variant/{{.variant}}/grafana.yaml
-            - $values/apps-config/environment/{{.cluster}}/grafana.yaml
+            - $values/apps-config/environment/{{.clusterName}}/grafana.yaml
       - repoURL: https://github.com/BlackOpsSolutions/Training-ArgoCD.git
         targetRevision: HEAD
         ref: values
