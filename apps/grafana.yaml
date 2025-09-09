@@ -19,7 +19,7 @@ spec:
       project: default
       sources:
       - repoURL: https://grafana.github.io/helm-charts
-        targetRevision: {{.chartVersion}}
+        targetRevision: "{{.chartVersion}}"
         chart: grafana
         helm:
           valueFiles:
