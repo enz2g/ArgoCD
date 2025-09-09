@@ -15,7 +15,6 @@ spec:
     spec:
       containers:
       - name: backend
-        insecure: "true"
         image: timblackops/guestbook:main
         ports:
         - containerPort: 3000
