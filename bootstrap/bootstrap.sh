@@ -51,18 +51,14 @@ if ! grep -q "${argocdServerURL}" /etc/hosts; then
 else
   echo "✅ argocd.local already present in /etc/hosts"
 fi
-echo "🌐 Applying ArgoCD Ingress for Traefik (https://argocd.local)..."
-kubectl apply -f argocd-cmd-params-cm.yaml
 
 echo "🌐 Applying ArgoCD Ingress for Traefik (${argocdServerURL})..."
-kubectl apply -f argocd-cmd-params-cm-local.yaml
+kubectl apply -f argocd-cmd-params-cm.yaml
 
 # Generate self-signed TLS cert if not exists
 if [[ ! -f "argocd.crt" || ! -f "argocd.key" ]]; then
   echo "🔐 Generating self-signed TLS cert for ${argocdServerURL}..."
-  openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-    -keyout argocd.key -out argocd.crt \
-    -subj "/CN=${argocdServerURL}/O=${argocdServerURL}"
+  openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout argocd.key -out argocd.crt -subj "/CN=${argocdServerURL}/O=${argocdServerURL}"
 else
   echo "🔐 Reusing existing argocd.crt and argocd.key"
 fi
@@ -70,10 +66,7 @@ fi
 
 echo "🔐 Creating/updating TLS secret in argocd namespace..."
 kubectl delete secret argocd-tls -n argocd --ignore-not-found
-kubectl create secret tls argocd-tls \
-  --cert=argocd.crt \
-  --key=argocd.key \
-  -n argocd
+kubectl create secret tls argocd-tls --cert=argocd.crt --key=argocd.key -n argocd
 
 # Restart argocd-server to pick up --insecure config
 echo "🔄 Restarting argocd-server..."
@@ -86,7 +79,7 @@ kubectl -n argocd rollout status deployment argocd-server
 # Server Ingress so we're reachable
 if ! kubectl get ingress "argocd-server-ingress" -n "${NAMESPACE}" &> /dev/null; then
     echo "Argo CD ingress is not deployed. Deploying it now..."
-    kubectl apply -n "${NAMESPACE}" -f argocd-ingress-local.yaml
+    kubectl apply -n "${NAMESPACE}" -f argocd-ingress.yaml
   else
     echo "Argo CD Ingress is already Deployed in the '${NAMESPACE}' namespace. Continuing..."
 fi
@@ -109,7 +102,7 @@ fi
 
 
 echo "🧩 Registering App of Apps..."
-kubectl apply -f ../project-platform.yaml
+kubectl apply -f ./project-platform.yaml
 kubectl apply -f ../apps/app-of-apps.yaml
 
 echo "🚀 Setup complete. Access ArgoCD at: https://argocd.local"
