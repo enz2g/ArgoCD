@@ -5,10 +5,11 @@ metadata:
   namespace: sample-guestbook
   annotations:
 spec:
+  externalTrafficPolicy: Local
   selector:
     app: guestbook
   ports:
     - port: 80         
       targetPort: 3000 
       protocol: TCP
-  type: ClusterIP
+  type: LoadBalancer   
