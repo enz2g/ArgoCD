@@ -4,7 +4,6 @@ metadata:
   name: guestbook-backend
   namespace: sample-guestbook
 spec:
-  externalTrafficPolicy: Local
   selector:
     app: guestbook
   ports:
