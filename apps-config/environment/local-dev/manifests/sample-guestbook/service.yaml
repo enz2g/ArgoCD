@@ -3,7 +3,6 @@ kind: Service
 metadata:
   name: guestbook-backend
   namespace: sample-guestbook
-  annotations:
 spec:
   externalTrafficPolicy: Local
   selector:
