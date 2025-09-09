@@ -8,8 +8,8 @@ spec:
   generators:
   - list:
       elements:
-      - cluster: local-dev
-        url: https://kubernetes.default.svc
+      - clusterName: local-dev
+        clusterURL: https://kubernetes.default.svc
         variant: local
         chartVersion: 1.16.1
   template:
