@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: tblackedg/guestbook-backend:main
+        image: timblackops/guestbook:main
         ports:
         - containerPort: 3000
         env:
