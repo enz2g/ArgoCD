@@ -11,7 +11,7 @@ spec:
       - clusterName: local-dev
         clusterURL: https://kubernetes.default.svc
         variant: local
-        chartVersion: 1.16.1
+        chartVersion: 9.4.4
   template:
     metadata:
       name: '{{.clusterName}}-grafana'
