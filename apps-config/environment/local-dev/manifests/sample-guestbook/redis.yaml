@@ -3,7 +3,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: redis
+  name: redis-guestbook-backend
   namespace: sample-guestbook
 spec:
   replicas: 1
@@ -24,7 +24,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: redis-guestbook-backend
+  name: redis
   namespace: sample-guestbook
 spec:
   selector:
