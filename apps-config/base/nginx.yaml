@@ -4,9 +4,18 @@ controller:
     enabled: true
     default: false
     controllerValue: "k8s.io/nginx"
+
   ingressClass: nginx
   ingressClassByName: true
   watchIngressWithoutClass: false
+
+  hostPort:
+    enabled: true
+    ports:
+      http: 80
+      https: 443
+
   service:
-    type: LoadBalancer  
-    loadBalancerIP: 192.168.127.101
+    type: ClusterIP  # Not NodePort or LoadBalancer
+
+  kind: DaemonSet  # Needed for hostPort on every node
