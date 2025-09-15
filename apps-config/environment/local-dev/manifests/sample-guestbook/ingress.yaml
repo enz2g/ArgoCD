@@ -25,4 +25,4 @@ spec:
               service:
                 name: guestbook-backend
                 port:
-                  number: 80   # Match Service port, NOT 443
+                  number: 32080   # Match Service port, NOT 443

@@ -7,7 +7,7 @@ spec:
   selector:
     app: guestbook
   ports:
-    - port: 80         
+    - port: 32080        
       targetPort: 3000 
       protocol: TCP
   type: ClusterIP   
