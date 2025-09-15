@@ -3,7 +3,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: redis-guestbook-backend
+  name: redis
   namespace: sample-guestbook
 spec:
   replicas: 1
