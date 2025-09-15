@@ -1,7 +1,10 @@
 controller:
-  kind: Deployment  # ✅ Do NOT use DaemonSet
+  kind: Deployment
+
   hostPort:
-    enabled: false  # ✅ Disable hostPort completely
+    enabled: false
+    http: null     # ❗ Force-disable port binding
+    https: null
 
   service:
     type: NodePort
