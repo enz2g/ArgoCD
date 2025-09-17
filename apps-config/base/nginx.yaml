@@ -3,14 +3,11 @@ controller:
 
   hostPort:
     enabled: false
-    http: null     # ❗ Force-disable port binding
+    http: null
     https: null
 
   service:
-    type: NodePort
-    nodePorts:
-      http: 80
-      https: 443
+    type: LoadBalancer
 
   ingressClassResource:
     name: nginx
