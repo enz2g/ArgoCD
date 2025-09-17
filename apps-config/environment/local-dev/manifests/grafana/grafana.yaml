@@ -8,6 +8,10 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
+  tls:
+    - hosts:
+        - grafana.local
+      secretName: grafana-tls
   rules:
     - host: grafana.local
       http:
@@ -19,3 +23,4 @@ spec:
                 name: local-dev-grafana
                 port:
                   number: 80
+                  
