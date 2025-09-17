@@ -16,8 +16,6 @@ spec:
   template:
     metadata:
       name: "{{.clusterName}}-dapr"
-      annotations:
-      argocd.argoproj.io/sync-wave: "1"
     spec:
       destination:
         server: "{{.clusterURL}}"
