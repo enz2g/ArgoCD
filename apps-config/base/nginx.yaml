@@ -8,6 +8,9 @@ controller:
 
   service:
     type: LoadBalancer
+    nodePorts:
+      http: null
+      https: null
 
   ingressClassResource:
     name: nginx
